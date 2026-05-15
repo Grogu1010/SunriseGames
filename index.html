@@ -119,6 +119,9 @@
     }
 
     .muted { color: var(--muted); }
+    .contact-links { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
+    .chip { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,255,255,0.06); font-weight:700; }
+    .chip:hover { border-color: rgba(255, 212, 142, .8); background: rgba(255,255,255,0.12);}
     footer { border-top: 1px solid rgba(255, 255, 255, .14); margin-top: 38px; padding-top: 18px; padding-bottom: 22px; }
     .glow { position: fixed; inset: auto -10% -120px auto; width: 380px; height: 380px; background: radial-gradient(circle, rgba(255, 169, 83, .42) 0%, rgba(255, 169, 83, 0) 70%); pointer-events: none; filter: blur(8px); }
 
@@ -164,7 +167,12 @@
     <section id="preorder" class="panel" style="margin-top:18px;text-align:center">
       <h2 style="margin-top:0">Be ready before sunset.</h2>
       <p class="muted">Pre-order Survive 'till Sunrise and follow Sunrise Games for launch news and development updates.</p>
-      <a class="btn" href="mailto:hello@sunrisegames.com">Contact us</a>
+      <a class="btn" href="mailto:sunrise.games.nz@gmail.com">Contact us</a>
+      <div class="contact-links" aria-label="Social media links">
+        <a class="chip" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="chip" href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a class="chip" href="https://x.com" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      </div>
     </section>
 
     <footer>
