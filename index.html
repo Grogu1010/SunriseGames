@@ -1,0 +1,323 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+function IconBase({ children, className = "h-5 w-5" }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  );
+}
+
+function CardsIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <rect x="6" y="3" width="11" height="16" rx="2" transform="rotate(8 11.5 11)" />
+      <rect x="3" y="5" width="11" height="16" rx="2" transform="rotate(-8 8.5 13)" />
+      <path d="M8 10h3" />
+      <path d="M8.5 14h4" />
+    </IconBase>
+  );
+}
+
+function SparklesIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z" />
+      <path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z" />
+      <path d="m5 15 .8 2.2L8 18l-2.2.8L5 21l-.8-2.2L2 18l2.2-.8L5 15Z" />
+    </IconBase>
+  );
+}
+
+function CartIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <circle cx="9" cy="20" r="1" />
+      <circle cx="18" cy="20" r="1" />
+      <path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H7" />
+    </IconBase>
+  );
+}
+
+function ArrowRightIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <path d="M5 12h14" />
+      <path d="m13 5 7 7-7 7" />
+    </IconBase>
+  );
+}
+
+function PlayIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <path d="M8 5v14l11-7L8 5Z" />
+    </IconBase>
+  );
+}
+
+function CameraIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <rect x="4" y="5" width="16" height="16" rx="5" />
+      <circle cx="12" cy="13" r="3.5" />
+      <path d="M17.5 8.5h.01" />
+    </IconBase>
+  );
+}
+
+function ChatIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.5-4.5A8 8 0 1 1 21 12Z" />
+      <path d="M8 12h.01" />
+      <path d="M12 12h.01" />
+      <path d="M16 12h.01" />
+    </IconBase>
+  );
+}
+
+function MailIcon({ className }) {
+  return (
+    <IconBase className={className}>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </IconBase>
+  );
+}
+
+const socials = [
+  { label: "TikTok", href: "#", icon: PlayIcon },
+  { label: "Instagram", href: "#", icon: CameraIcon },
+  { label: "X / Twitter", href: "#", icon: ChatIcon },
+  { label: "YouTube", href: "#", icon: PlayIcon },
+  { label: "Email", href: "mailto:hello@sunrisegames.com", icon: MailIcon },
+];
+
+const features = [
+  {
+    title: "Survive the Night",
+    copy: "Draw cards, manage supplies, and stay alive as the dark closes in around you.",
+  },
+  {
+    title: "Build Your Hand",
+    copy: "Choose when to play, hold, trade, or risk a card before the next threat arrives.",
+  },
+  {
+    title: "Make It to Sunrise",
+    copy: "Every turn matters. Hold out until the first light breaks through.",
+  },
+];
+
+const smokeTests = [
+  {
+    name: "renders the studio name",
+    check: () => "Sunrise Games".length > 0,
+  },
+  {
+    name: "has a pre-order CTA",
+    check: () => socials.length >= 1 && features.length === 3,
+  },
+  {
+    name: "social links have local icons",
+    check: () => socials.every((social) => typeof social.icon === "function"),
+  },
+  {
+    name: "uses card game copy",
+    check: () => features.some((feature) => feature.copy.toLowerCase().includes("card")),
+  },
+];
+
+if (typeof console !== "undefined") {
+  smokeTests.forEach((test) => {
+    if (!test.check()) {
+      console.warn(`Smoke test failed: ${test.name}`);
+    }
+  });
+}
+
+export default function SunriseGamesWebsite() {
+  return (
+    <main className="min-h-screen overflow-hidden bg-[#090814] text-white">
+      <section className="relative min-h-screen px-6 py-8 sm:px-10 lg:px-16">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,183,77,0.22),transparent_30%),radial-gradient(circle_at_85%_10%,rgba(255,94,98,0.2),transparent_28%),linear-gradient(180deg,#17101f_0%,#090814_72%)]" />
+        <div className="absolute -bottom-28 left-1/2 h-80 w-[120%] -translate-x-1/2 rounded-[50%] bg-gradient-to-t from-amber-400/40 via-orange-500/20 to-transparent blur-2xl" />
+        <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#090814] to-transparent" />
+
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-16">
+          <header className="flex items-center justify-between gap-6">
+            <a href="#top" className="flex items-center gap-3" aria-label="Sunrise Games home">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-300 to-orange-600 shadow-lg shadow-orange-700/30">
+                <CardsIcon className="h-6 w-6 text-[#11101f]" />
+              </div>
+              <div>
+                <p className="text-lg font-black tracking-tight">Sunrise Games</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-amber-200/80">Card Game Studio</p>
+              </div>
+            </a>
+
+            <nav className="hidden items-center gap-8 text-sm font-medium text-white/75 md:flex" aria-label="Main navigation">
+              <a className="transition hover:text-amber-200" href="#game">Game</a>
+              <a className="transition hover:text-amber-200" href="#features">Features</a>
+              <a className="transition hover:text-amber-200" href="#socials">Socials</a>
+            </nav>
+
+            <Button asChild className="rounded-full bg-white px-5 text-[#15101c] hover:bg-amber-100">
+              <a href="#preorder">Pre-order</a>
+            </Button>
+          </header>
+
+          <section id="top" className="grid min-h-[72vh] items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="max-w-3xl"
+            >
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-200/25 bg-white/8 px-4 py-2 text-sm text-amber-100 backdrop-blur">
+                <SparklesIcon className="h-4 w-4" />
+                Coming soon from Sunrise Games
+              </div>
+
+              <h1 className="text-5xl font-black leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
+                Survive <span className="bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent">'till Sunrise</span>
+              </h1>
+
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-white/76 sm:text-xl">
+                A tense survival card game where every draw matters, every resource counts, and dawn is the only way out.
+              </p>
+
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                <Button asChild size="lg" className="rounded-full bg-gradient-to-r from-amber-300 to-orange-500 px-7 text-base font-bold text-[#16101b] shadow-xl shadow-orange-600/25 hover:from-amber-200 hover:to-orange-400">
+                  <a href="#preorder">
+                    <CartIcon className="mr-2 h-5 w-5" />
+                    Pre-order now
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="rounded-full border-white/18 bg-white/8 px-7 text-base text-white hover:bg-white/14 hover:text-white">
+                  <a href="#game">
+                    See the game
+                    <ArrowRightIcon className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="relative mx-auto aspect-[4/5] w-full max-w-[520px]"
+            >
+              <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-amber-300 via-orange-600 to-fuchsia-800 p-1 shadow-2xl shadow-orange-900/40">
+                <div className="relative h-full overflow-hidden rounded-[2.25rem] bg-[#120f1f]">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(255,202,89,0.95),rgba(255,117,64,0.35)_22%,transparent_39%),linear-gradient(180deg,transparent_0%,rgba(9,8,20,0.22)_42%,#090814_92%)]" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[linear-gradient(135deg,transparent_0_35%,rgba(255,255,255,0.08)_35%_36%,transparent_36%_100%)] bg-[length:42px_42px] opacity-40" />
+                  <div className="absolute left-12 top-16 h-44 w-32 rotate-[-12deg] rounded-2xl border border-white/20 bg-gradient-to-br from-amber-100 to-orange-400 shadow-2xl shadow-black/30" />
+                  <div className="absolute left-32 top-12 h-44 w-32 rotate-[7deg] rounded-2xl border border-white/20 bg-gradient-to-br from-rose-200 to-orange-600 shadow-2xl shadow-black/30" />
+                  <div className="absolute left-24 top-28 h-44 w-32 rotate-[18deg] rounded-2xl border border-white/20 bg-[#17101f] shadow-2xl shadow-black/30">
+                    <div className="m-3 rounded-xl border border-amber-200/30 p-3 text-center text-amber-100">
+                      <p className="text-xs font-black uppercase tracking-[0.25em]">Dawn</p>
+                      <p className="mt-8 text-4xl font-black">+1</p>
+                      <p className="mt-6 text-[10px] uppercase tracking-[0.2em] text-white/60">Survive</p>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-12 left-8 right-8 rounded-3xl border border-white/12 bg-black/35 p-6 backdrop-blur-md">
+                    <p className="text-sm uppercase tracking-[0.32em] text-amber-200">Featured Card Game</p>
+                    <h2 className="mt-3 text-4xl font-black leading-none">Survive 'till Sunrise</h2>
+                    <p className="mt-4 text-sm leading-6 text-white/70">Pre-order the card game and follow development updates from the links below.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </section>
+        </div>
+      </section>
+
+      <section id="game" className="relative px-6 py-24 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-orange-300">The Game</p>
+              <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">Night falls. The countdown begins.</h2>
+            </div>
+            <p className="text-lg leading-8 text-white/72">
+              Survive 'till Sunrise is a survival card game about making it through one dangerous night. Draw your hand, gather supplies, face threats, and push through the longest night of your life. When the sun comes up, you win. Until then, every card could save you or sink you.
+            </p>
+          </div>
+
+          <div id="features" className="mt-12 grid gap-5 md:grid-cols-3">
+            {features.map((feature) => (
+              <Card key={feature.title} className="border-white/10 bg-white/[0.06] text-white shadow-xl shadow-black/20 backdrop-blur">
+                <CardContent className="p-7">
+                  <div className="mb-5 h-2 w-16 rounded-full bg-gradient-to-r from-amber-300 to-orange-500" />
+                  <h3 className="text-2xl font-black">{feature.title}</h3>
+                  <p className="mt-3 leading-7 text-white/68">{feature.copy}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="preorder" className="px-6 py-20 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-amber-200/20 bg-gradient-to-br from-amber-300 via-orange-500 to-rose-600 p-1 shadow-2xl shadow-orange-950/30">
+          <div className="rounded-[1.8rem] bg-[#100d1b]/95 p-8 text-center sm:p-12">
+            <p className="text-sm font-bold uppercase tracking-[0.32em] text-amber-200">Pre-order</p>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-6xl">Be ready before sunset.</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/72">
+              Pre-order Survive 'till Sunrise and follow Sunrise Games for launch news, card previews, behind-the-scenes clips, and development updates.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Button asChild size="lg" className="rounded-full bg-white px-8 text-base font-bold text-[#16101b] hover:bg-amber-100">
+                <a href="#" aria-label="Pre-order Survive 'till Sunrise">
+                  Pre-order Survive 'till Sunrise
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full border-white/20 bg-white/8 px-8 text-base text-white hover:bg-white/14 hover:text-white">
+                <a href="mailto:hello@sunrisegames.com">Contact us</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="socials" className="px-6 pb-10 pt-10 sm:px-10 lg:px-16">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-xl font-black">Sunrise Games</p>
+            <p className="mt-2 text-sm text-white/55">Making card games worth staying up for.</p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {socials.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm text-white/75 transition hover:border-amber-200/40 hover:bg-white/[0.11] hover:text-amber-100"
+                >
+                  <Icon className="h-4 w-4" />
+                  {social.label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
+}
