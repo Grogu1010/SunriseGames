@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Order | Sunrise Games</title>
+  <link rel="icon" type="image/png" href="Logo-SunriseGames.png" />
+  <style>
+    :root { --fg: #fff; --muted: rgba(235, 235, 255, 0.78); --accent1: #ffd27a; --accent2: #ff7a52; --line: rgba(255, 255, 255, 0.2); --card: rgba(255,255,255,0.08); }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; font-family: Inter, system-ui, Arial, sans-serif; color: var(--fg); background: radial-gradient(circle at 12% 18%, rgba(255, 183, 77, 0.26), transparent 28%), radial-gradient(circle at 85% 8%, rgba(127, 91, 255, 0.28), transparent 25%), linear-gradient(180deg, #1b1326 0%, #0a0916 62%, #090814 100%); }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px; }
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:10px 12px; border:1px solid var(--line); border-radius:16px; background: rgba(12, 10, 25, 0.68); }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:900; }
+    .brand img { height: 56px; }
+    .btn { display:inline-block; background: linear-gradient(100deg, var(--accent1), var(--accent2)); color: #1a1322; padding: 10px 18px; border-radius: 999px; font-weight: 800; text-decoration:none; }
+    .panel { margin-top: 20px; border: 1px solid var(--line); background: linear-gradient(160deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03)); padding: 24px; border-radius: 20px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin-top:16px; }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 16px; }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="brand">
+        <img src="Logo-SunriseGames.png" alt="Sunrise Games logo" />
+        <span>Sunrise Games</span>
+      </div>
+      <a class="btn" href="index.html">Back to home</a>
+    </header>
+
+    <section class="panel" id="preorder-info">
+      <h1 style="margin-top:0">Pre-Order Information</h1>
+      <p class="muted">Please read this carefully before continuing to payment.</p>
+      <div class="grid" aria-label="Pre-order details">
+        <article class="card">
+          <h3>How pre-orders work</h3>
+          <p class="muted">Pre-ordering guarantees you a copy of <em>Survive 'till Sunrise</em>.</p>
+        </article>
+        <article class="card">
+          <h3>Important policy</h3>
+          <p class="muted">All pre-orders are final and cannot be canceled or refunded.</p>
+        </article>
+        <article class="card">
+          <h3>Required pick-up time</h3>
+          <p class="muted">If pre-ordered, you must pick up on <strong>Market Evening — Thursday 25 June, 4:00pm-6:00pm</strong> at the <strong>HVHS School Hall</strong>.</p>
+        </article>
+        <article class="card">
+          <h3>If you cannot attend</h3>
+          <p class="muted">If you cannot make it on that day, please contact Sunrise Games beforehand.</p>
+        </article>
+      </div>
+      <div style="margin-top:22px;">
+        <button class="btn" type="button" aria-label="Continue to payment (placeholder)">Continue to payment</button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

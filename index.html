@@ -6,198 +6,51 @@
   <title>Sunrise Games</title>
   <link rel="icon" type="image/png" href="Logo-SunriseGames.png" />
   <style>
-    :root {
-      --bg: #090814;
-      --fg: #ffffff;
-      --muted: rgba(235, 235, 255, 0.78);
-      --accent1: #ffd27a;
-      --accent2: #ff7a52;
-      --accent3: #8f7bff;
-      --accent4: #31d9cf;
-      --card: rgba(255, 255, 255, 0.08);
-      --line: rgba(255, 255, 255, 0.2);
-      --glass: rgba(255, 255, 255, 0.07);
-      --shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
-    }
-
+    :root { --bg: #090814; --fg: #ffffff; --muted: rgba(235, 235, 255, 0.78); --accent1: #ffd27a; --accent2: #ff7a52; --accent3: #8f7bff; --accent4: #31d9cf; --card: rgba(255, 255, 255, 0.08); --line: rgba(255, 255, 255, 0.2); --glass: rgba(255, 255, 255, 0.07); --shadow: 0 22px 50px rgba(0, 0, 0, 0.45); }
     * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, system-ui, Arial, sans-serif;
-      color: var(--fg);
-      background:
-        radial-gradient(circle at 12% 18%, rgba(255, 183, 77, 0.26), transparent 28%),
-        radial-gradient(circle at 85% 8%, rgba(127, 91, 255, 0.28), transparent 25%),
-        linear-gradient(180deg, #1b1326 0%, #0a0916 62%, #090814 100%);
-    }
-
+    body { margin: 0; min-height: 100vh; font-family: Inter, system-ui, Arial, sans-serif; color: var(--fg); background: radial-gradient(circle at 12% 18%, rgba(255, 183, 77, 0.26), transparent 28%), radial-gradient(circle at 85% 8%, rgba(127, 91, 255, 0.28), transparent 25%), linear-gradient(180deg, #1b1326 0%, #0a0916 62%, #090814 100%); }
     a { color: inherit; text-decoration: none; }
-
     .wrap { max-width: 1120px; margin: 0 auto; padding: 28px; position: relative; z-index: 1; }
-
-    .nav {
-      position: sticky;
-      top: 16px;
-      z-index: 8;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
-      margin-bottom: 18px;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(12, 10, 25, 0.68);
-      backdrop-filter: blur(14px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-weight: 900;
-      font-size: 1.2rem;
-      padding: 8px 14px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
-    }
-
+    .nav { position: sticky; top: 16px; z-index: 8; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 16px; background: rgba(12, 10, 25, 0.68); backdrop-filter: blur(14px); }
+    .brand { display: flex; align-items: center; gap: 16px; font-weight: 900; font-size: 1.2rem; padding: 8px 14px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24); }
     .brand img { height: 72px; width: auto; display: block; filter: drop-shadow(0 8px 22px rgba(255, 160, 70, 0.35)); }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(100deg, var(--accent1), var(--accent2));
-      color: #1a1322;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-weight: 800;
-      box-shadow: 0 8px 20px rgba(255, 122, 61, 0.35);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
+    .btn { display: inline-block; background: linear-gradient(100deg, var(--accent1), var(--accent2)); color: #1a1322; padding: 12px 20px; border-radius: 999px; font-weight: 800; box-shadow: 0 8px 20px rgba(255, 122, 61, 0.35); transition: transform .2s ease, box-shadow .2s ease; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(255, 122, 61, 0.45); }
-
-    .btn.secondary {
-      background: transparent;
-      color: var(--fg);
-      border: 1px solid rgba(255,255,255,.3);
-      box-shadow: none;
-    }
-
-    .hero {
-      position: relative;
-      margin-top: 8px;
-      padding: 92px 38px 64px;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      overflow: hidden;
-      background:
-        linear-gradient(125deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03)),
-        radial-gradient(circle at 84% 12%, rgba(127, 91, 255, 0.36), transparent 36%);
-      box-shadow: var(--shadow);
-      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 380px;
-      height: 380px;
-      right: -120px;
-      bottom: -160px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(49, 217, 207, .3) 0%, rgba(49, 217, 207, 0) 70%);
-      filter: blur(8px);
-      pointer-events: none;
-    }
-
-    .badge {
-      display: inline-block;
-      margin: 0;
-      font-size: .85rem;
-      color: #ffd38a;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 8px 12px;
-      border: 1px solid rgba(255, 211, 138, .45);
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.2);
-    }
-
+    .btn.secondary { background: transparent; color: var(--fg); border: 1px solid rgba(255,255,255,.3); box-shadow: none; }
+    .hero { position: relative; margin-top: 8px; padding: 92px 38px 64px; border: 1px solid var(--line); border-radius: 28px; overflow: hidden; background: linear-gradient(125deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03)), radial-gradient(circle at 84% 12%, rgba(127, 91, 255, 0.36), transparent 36%); box-shadow: var(--shadow); text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); }
+    .hero::after { content: ""; position: absolute; width: 380px; height: 380px; right: -120px; bottom: -160px; border-radius: 50%; background: radial-gradient(circle at center, rgba(49, 217, 207, .3) 0%, rgba(49, 217, 207, 0) 70%); filter: blur(8px); pointer-events: none; }
     h1 { font-size: clamp(2.4rem, 8vw, 5.3rem); line-height: .95; margin: 18px 0 12px; font-weight: 900; max-width: 10ch; }
     .sub { font-size: 1.14rem; color: var(--muted); max-width: 760px; margin-bottom: 28px; }
-
     .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-bottom: 18px; }
     .stats { display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); gap: 12px; max-width: 680px; }
     .stat { background: rgba(0, 0, 0, .22); border: 1px solid rgba(255, 255, 255, .16); border-radius: 14px; padding: 12px 14px; }
     .stat strong { font-size: 1.3rem; display: block; }
-
     .section-title { margin: 0 0 10px; }
     .panel { margin-top: 20px; border: 1px solid var(--line); background: linear-gradient(160deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03)); padding: 24px; border-radius: 20px; box-shadow: 0 20px 38px rgba(0, 0, 0, 0.3); }
-
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 14px;
-      padding: 16px;
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 212, 142, .7);
-      background: rgba(255, 255, 255, .1);
-    }
-
+    .card { background: var(--card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 16px; transition: transform .25s ease, border-color .25s ease, background .25s ease; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(255, 212, 142, .7); background: rgba(255, 255, 255, .1); }
     .muted { color: var(--muted); }
-    .contact-links { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
-    .chip { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,255,255,0.06); font-weight:700; }
-    .chip:hover { border-color: rgba(255, 212, 142, .8); background: rgba(255,255,255,0.12);}
     footer { border-top: 1px solid rgba(255, 255, 255, .14); margin-top: 38px; padding-top: 18px; padding-bottom: 22px; }
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      color: rgba(255, 255, 255, 0.75);
-      font-weight: 700;
-    }
-    .divider::before, .divider::after {
-      content: "";
-      height: 1px;
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.4), rgba(255,255,255,0));
-      flex: 1;
-    }
+    .divider { display: flex; align-items: center; gap: 12px; margin-top: 20px; color: rgba(255, 255, 255, 0.75); font-weight: 700; }
+    .divider::before, .divider::after { content: ""; height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.4), rgba(255,255,255,0)); flex: 1; }
     .glow { position: fixed; inset: auto -10% -120px auto; width: 380px; height: 380px; background: radial-gradient(circle, rgba(255, 169, 83, .42) 0%, rgba(255, 169, 83, 0) 70%); pointer-events: none; filter: blur(8px); }
-
-    @media (max-width: 680px) {
-      .brand img { height: 58px; }
-      .brand { padding: 8px 10px; }
-      .hero { padding: 62px 22px 50px; }
-      .stats { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 680px) { .brand img { height: 58px; } .brand { padding: 8px 10px; } .hero { padding: 62px 22px 50px; } .stats { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
     <header class="nav">
-      <div class="brand">
-        <img src="Logo-SunriseGames.png" alt="Sunrise Games logo" />
-        <span>Sunrise Games</span>
-      </div>
-      <a class="btn" href="#preorder-info">Pre-order</a>
+      <div class="brand"><img src="Logo-SunriseGames.png" alt="Sunrise Games logo" /><span>Sunrise Games</span></div>
+      <a class="btn" href="preorder.html">Pre-order</a>
     </header>
 
     <section class="hero" id="top">
       <h1>Survive 'till Sunrise</h1>
       <p class="sub">A new and exciting game coming to HVHS this Market Day!</p>
       <div class="hero-actions">
-        <a class="btn" href="#preorder-info">Pre-order now</a>
+        <a class="btn" href="preorder.html">Pre-order now</a>
         <a class="btn secondary" href="#game">Explore gameplay</a>
       </div>
       <div class="stats" aria-label="Game highlights">
@@ -212,32 +65,6 @@
       <p class="muted">Survive 'till Sunrise is a simple card game with one objective; SURVIVE. 'TILL. SUNRISE. Thoughout the night, zombies will be coming. But the zombies can only hurt you if you are asleep, so stay up!</p>
       <div class="grid" id="features"></div>
       <div class="divider">Survive 'till Sunrise will keep you playing until then too!</div>
-    </section>
-
-    <section id="preorder-info" class="panel" style="margin-top:18px;">
-      <h2 style="margin-top:0">Pre-Order Information</h2>
-      <p class="muted">Please read this carefully before continuing to payment.</p>
-      <div class="grid" aria-label="Pre-order details">
-        <article class="card">
-          <h3>How pre-orders work</h3>
-          <p class="muted">Pre-ordering guarantees you a copy of <em>Survive 'till Sunrise</em>.</p>
-        </article>
-        <article class="card">
-          <h3>Important policy</h3>
-          <p class="muted">All pre-orders are final and cannot be canceled or refunded.</p>
-        </article>
-        <article class="card">
-          <h3>Required pick-up time</h3>
-          <p class="muted">If pre-ordered, you must pick up on <strong>Market Evening — Thursday 25 June, 4:00pm-6:00pm</strong> at the <strong>HVHS School Hall</strong>.</p>
-        </article>
-        <article class="card">
-          <h3>If you cannot attend</h3>
-          <p class="muted">If you cannot make it on that day, please contact Sunrise Games beforehand.</p>
-        </article>
-      </div>
-      <div style="margin-top:22px;">
-        <button class="btn" type="button" aria-label="Continue to payment (placeholder)">Continue to payment</button>
-      </div>
     </section>
 
     <footer>
